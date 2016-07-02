@@ -4,8 +4,9 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+const secret = require('./config/secret');
 // youtube api key
-const API_KEY = 'AIzaSyCIa36jKRWEy0mjFfcVUw-mSrvD0VO-Jpg';
+const API_KEY = secret.API_KEY;
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
       selectedVideo: null
     };
 
-    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    YTSearch({key: API_KEY, term: 'puppies'}, (videos) => {
       this.setState({
         videos: videos,
         selectedVideo: videos[0]
